@@ -23,9 +23,11 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="view/css/style.css">
 
   <!-- =======================================================
   * Template Name: CoreBiz
@@ -89,8 +91,63 @@
           <div class="col-lg-12" data-aos="fade-right" data-aos-delay="200">
             <div class="content">
               <h2>Sistemas para administrar empleados en la empresa Drapps</h2>
-              <button type="button" class="btn btn-primary">Agregar empleado (Con un div Oculto)</button>
+              <button type="button" class="btn btn-primary" onclick="crearEmpleado()">Agregar empleado (Con un div Oculto)</button>
               <button type="button" class="btn btn-success">Buscar Empleado (Con modal)</button>
+              
+              <div class="container" id="divAgregarEmpleado">
+                <h4>Agregar Empleados: Drapps.</h4>
+                <form action="/action_page.php">
+                  <div class="mb-3 mt-3">
+                    <label for="CCf">CC:</label>
+                    <input type="number" class="form-control" id="CC" placeholder="Enter CC" name="CCPHP">
+                  </div>
+                  <div class="mb-3">
+                    <label for="nombreCompletof">Nombre:</label>
+                    <input type="text" class="form-control" id="nombreCompleto" placeholder="Enter nombre completo" name="nombreCompletoPHP">
+                  </div>
+                  <div class="mb-3">
+                    <label for="direccionf">Dirección:</label>
+                    <input type="text" class="form-control" id="direccion" placeholder="Enter dirección" name="direccionPHP">
+                  </div>
+                  <div class="mb-3">
+                    <label for="emailf">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="emailPHP">
+                  </div>
+                  <div class="mb-3">
+                    <label for="telefonof">Teléfono:</label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="Enter teléfono" name="telefonoPHP">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sueldoBasef">Sueldo Base:</label>
+                    <input type="number" class="form-control" id="sueldoBase" placeholder="Enter sueldo base" name="sueldoBasePHP">
+                  </div>
+                  <div class="mb-3">
+                    <label for="tipoEmpleadof">Tipo de Empleado:</label>
+                    <select class="form-control" id="tipoEmpleado" name="tipoEmpleadoPHP">
+                      <option value="" disabled selected>Select tipo de empleado</option>
+                      <option value="Fijo">Fijo</option>
+                      <option value="Contrato">Contrato</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="tipoBonificacionf">Tipo de Bonificación:</label>
+                    <select class="form-control" id="tipoBonificacion" name="tipoBonificacionPHP">
+                      <option value="" disabled selected>Select tipo de bonificación</option>
+                      <option value="Fijo">A</option>
+                      <option value="Contrato">B</option>
+                      <option value="Contrato">C</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-check mb-3">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
               <hr>
 
               <div class="container mt-3">
@@ -496,7 +553,8 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <!-- Vendor JS Controlador -->
+  <script src="controller/main.js"></script>
 </body>
 
 </html>
