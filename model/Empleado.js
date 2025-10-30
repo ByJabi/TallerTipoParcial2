@@ -1,8 +1,8 @@
 class Empleado {
     // atributos.
     // constructor.
-    constructor() {}
-    constructor(cc, nombreCompleto, direccion, email, telefono, sueldoBase, tipoEmpleado, tipoBonificacion) {
+    //constructor() {}
+    constructor(cc, nombreCompleto, direccion, email, telefono, sueldoBase, tipoEmpleado, tipoBonificacion, SaldoTotal) {
         this.cc = cc;
         this.nombreCompleto = nombreCompleto;
         this.direccion = direccion;

@@ -45,7 +45,7 @@
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">Ejemplo segundo parcial</a></i>
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">Segundo Parcial</a></i>
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>Javier Antonio Beleño Rico</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
@@ -92,14 +92,14 @@
             <div class="content">
               <h2>Sistemas para administrar empleados en la empresa Drapps</h2>
               <button type="button" class="btn btn-primary" onclick="crearEmpleado()">Agregar empleado (Con un div Oculto)</button>
-              <button type="button" class="btn btn-success">Buscar Empleado (Con modal)</button>
+              <!-- <button type="button" class="btn btn-success">Buscar Empleado (Con modal)</button> -->
               
               <div class="container" id="divAgregarEmpleado">
                 <h4>Agregar Empleados: Drapps.</h4>
-                <form action="/action_page.php">
+                <form id="formEmpleado">
                   <div class="mb-3 mt-3">
                     <label for="CCf">CC:</label>
-                    <input type="number" class="form-control" id="CC" placeholder="Enter CC" name="CCPHP">
+                    <input type="number" class="form-control" id="cc" placeholder="Enter CC" name="CCPHP">
                   </div>
                   <div class="mb-3">
                     <label for="nombreCompletof">Nombre:</label>
@@ -124,7 +124,7 @@
                   <div class="mb-3">
                     <label for="tipoEmpleadof">Tipo de Empleado:</label>
                     <select class="form-control" id="tipoEmpleado" name="tipoEmpleadoPHP">
-                      <option value="" disabled selected>Select tipo de empleado</option>
+                      <option value="" disabled selected>Seleccione el tipo de empleado</option>
                       <option value="Fijo">Fijo</option>
                       <option value="Contrato">Contrato</option>
                     </select>
@@ -132,19 +132,21 @@
                   <div class="mb-3">
                     <label for="tipoBonificacionf">Tipo de Bonificación:</label>
                     <select class="form-control" id="tipoBonificacion" name="tipoBonificacionPHP">
-                      <option value="" disabled selected>Select tipo de bonificación</option>
-                      <option value="Fijo">A</option>
-                      <option value="Contrato">B</option>
-                      <option value="Contrato">C</option>
+                      <option value="" disabled selected>Seleccione el tipo de bonificación</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
                     </select>
                   </div>
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
                     <div class="form-check mb-3">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" name="remember"> Remember me
                     </label>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  </div> -->
+                  <!-- <button type="submit" class="btn btn-primary" onclick="AgregarEmpleado()">Agregar empleado</button> -->
+                  <button type="button" class="btn btn-secondary" onclick="AgregarEmpleado()">Agregar Empleado</button>
                 </form>
               </div>
             </div>
@@ -152,7 +154,7 @@
 
               <div class="container mt-3">
                 <h2>Lista de empleados (Table Hover Rows)</h2>
-                <table class="table table-hover">
+                <table class="table table-hover" id="tablaEmpleados">
                   <thead>
                     <tr>
                       <th>No.</th>
@@ -164,51 +166,50 @@
                       <th>Sueldo Base</th>
                       <th>Tipo de Empleado</th>
                       <th>Tipo de Bonificación</th>
-                      <th>Modificar</th>
-                      <th>Eliminar</th>
+                      <th>Saldo Total</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1.</td>
-                      <td>1065862177</td>
-                      <td>Calletana Lopez Baleta</td>
-                      <td>Carrera 40 via al mar</td>
-                      <td>calletana@unicesar.edu.co</td>
+                      <td>1</td>
+                      <td>10768776555</td>
+                      <td>Doe</td>
+                      <td>Aguachica</td>
+                      <td>doe@gmail.com</td>
                       <td>3153801813</td>
-                      <td>3000000</td>
+                      <td>100000</td>
                       <td>Fijo</td>
                       <td>C</td>
-                      <td><button type="button" class="btn btn-warning">Modificar</button></td>
-                      <td><button type="button" class="btn btn-danger">Eliminar</button></td>
                     </tr>
                     <tr>
-                      <td>2.</td>
-                      <td>1065862178</td>
-                      <td>Dulce Maria Rodríguez</td>
-                      <td>Carrera 40 via al mar</td>
-                      <td>dulcerodriguez@gmail.com</td>
+                      <td>2</td>
+                      <td>10768776545</td>
+                      <td>Calletana López Baleta</td>
+                      <td>Aguachica</td>
+                      <td>ky@gmail.com</td>
                       <td>3153801813</td>
-                      <td>2000000</td>
+                      <td>100000</td>
                       <td>Fijo</td>
-                      <td>B</td>
-                      <td><button type="button" class="btn btn-warning">Modificar</button></td>
-                      <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                      <td>A</td>
                     </tr>
                     <tr>
-                      <td>3.</td>
-                      <td>1265862177</td>
-                      <td>Rafael José Padilla López</td>
-                      <td>Carrera 40 via al mar</td>
-                      <td>rpadilla@unicesar.edu.co</td>
+                      <td>3</td>
+                      <td>10768776500</td>
+                      <td>José Rodríguez</td>
+                      <td>Aguachica</td>
+                      <td>jose@gmail.com</td>
                       <td>3153801813</td>
-                      <td>5000000</td>
-                      <td>Contrato</td>
-                      <td>C</td>
-                      <td><button type="button" class="btn btn-warning">Modificar</button></td>
-                      <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                      <td>500000</td>
+                      <td>Fijo</td>
+                      <td>D</td>
                     </tr>
                   </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="9" class="text-end"><strong>Total Nómina:</strong></td>
+                      <td id="totalNomina"></td>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
               <hr>
@@ -226,7 +227,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Grupo #9</h2>
-        <p>Taller tipo parcial.</p>
+        <p>Segundo parcial.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -553,7 +554,10 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+
   <!-- Vendor JS Controlador -->
+  <script src="model/empleado.js"></script>
   <script src="controller/main.js"></script>
 </body>
 
